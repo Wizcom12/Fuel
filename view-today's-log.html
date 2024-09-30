@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Today's Log</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="min-h-screen flex flex-col">
+        
+        
+         
+  <nav class="bg-blue-600 p-4 text-white">
+    <div class="container mx-auto flex justify-between items-center">
+        <h1 class="text-2xl font-bold">Today's  Log Details </h1>
+        <div class="hidden md:flex space-x-4">
+            <a href="client.html" class="hover:text-blue-200">Client Dashboard</a>
+            <a href="petrol-station.html" class="hover:text-blue-200">Petrol Station Dashboard</a>
+            <a href="admin.html" class="hover:text-blue-200">Admin Dashboard</a>
+        </div>
+        <button class="md:hidden flex items-center" id="menu-button">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
+        <button class="bg-blue-800 px-4 py-2 rounded">Log Out</button>
+    </div>
+    <div class="md:hidden" id="menu" class="hidden">
+        <a href="client.html" class="block px-4 py-2 hover:bg-blue-500">Client Dashboard</a>
+        <a href="petrol-station.html" class="block px-4 py-2 hover:bg-blue-500">Petrol Station Dashboard</a>
+        <a href="admin.html" class="block px-4 py-2 hover:bg-blue-500">Admin Dashboard</a>
+    </div>
+</nav>
+
+<script>
+    const menuButton = document.getElementById('menu-button');
+    const menu = document.getElementById('menu');
+
+    menuButton.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+    });
+</script>
+        
+        
+
+        <div class="container mx-auto mt-8">
+            <h2 class="text-2xl font-bold text-gray-700 mb-6">View Today's Log</h2>
+            <div class="bg-white p-6 rounded shadow-md">
+                <table class="w-full table-auto">
+                    <thead>
+                        <tr class="bg-gray-200">
+                            <th class="px-4 py-2">Log ID</th>
+                            <th class="px-4 py-2">Client ID</th>
+                            <th class="px-4 py-2">Voucher ID</th>
+                            <th class="px-4 py-2">Amount (UGX)</th>
+                            <th class="px-4 py-2">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="border px-4 py-2">#L001</td>
+                            <td class="border px-4 py-2">A123456789</td>
+                            <td class="border px-4 py-2">#123456</td>
+                            <td class="border px-4 py-2">10,000</td>
+                            <td class="border px-4 py-2 text-green-500">Fuel Provided</td>
+                        </tr>
+                        <tr>
+                            <td class="border px-4 py-2">#L002</td>
+                            <td class="border px-4 py-2">B987654321</td>
+                            <td class="border px-4 py-2">#123457</td>
+                            <td class="border px-4 py-2">5,000</td>
+                            <td class="border px-4 py-2 text-green-500">Fuel Provided</td>
+                        </tr>
+                        <tr>
+                            <td class="border px-4 py-2">#L003</td>
+                            <td class="border px-4 py-2">C456789123</td>
+                            <td class="border px-4 py-2">#123458</td>
+                            <td class="border px-4 py-2">20,000</td>
+                            <td class="border px-4 py-2 text-red-500">Verification Pending</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <footer class="bg-gray-800 p-4 text-white mt-auto">
+            <div class="container mx-auto text-center">
+                <p>&copy; 2024 Fuel Voucher System. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

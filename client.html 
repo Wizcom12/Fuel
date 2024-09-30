@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+  <div class="min-h-screen flex flex-col">
+    <!-- Navbar -->
+
+
+ 
+  <nav class="bg-blue-600 p-4 text-white">
+    <div class="container mx-auto flex justify-between items-center">
+        <h1 class="text-2xl font-bold">Client  Dashboard </h1>
+        <div class="hidden md:flex space-x-4">
+            <a href="client.html" class="hover:text-blue-200">Client Dashboard</a>
+            <a href="petrol-station.html" class="hover:text-blue-200">Petrol Station Dashboard</a>
+            <a href="admin.html" class="hover:text-blue-200">Admin Dashboard</a>
+        </div>
+        <button class="md:hidden flex items-center" id="menu-button">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
+        <button class="bg-blue-800 px-4 py-2 rounded">Log Out</button>
+    </div>
+    <div class="md:hidden" id="menu" class="hidden">
+        <a href="client.html" class="block px-4 py-2 hover:bg-blue-500">Client Dashboard</a>
+        <a href="petrol-station.html" class="block px-4 py-2 hover:bg-blue-500">Petrol Station Dashboard</a>
+        <a href="admin.html" class="block px-4 py-2 hover:bg-blue-500">Admin Dashboard</a>
+    </div>
+</nav>
+
+<script>
+    const menuButton = document.getElementById('menu-button');
+    const menu = document.getElementById('menu');
+
+    menuButton.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+    });
+</script>
+
+
+
+    <!-- Dashboard Content -->
+    <div class="flex-grow container mx-auto mt-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- Total Vouchers -->
+        <div class="bg-white p-6 rounded shadow-md">
+          <h2 class="text-xl font-semibold text-gray-700">Total Vouchers</h2>
+          <p class="text-4xl font-bold text-blue-600 mt-4">3</p>
+          <a href="new-voucher.html" class="bg-blue-600 text-white px-6 py-2 rounded">Request New Voucher</a>
+        </div>
+
+        <!-- Active Loans -->
+        <div class="bg-white p-6 rounded shadow-md">
+          <h2 class="text-xl font-semibold text-gray-700">Active Loans</h2>
+          <p class="text-4xl font-bold text-yellow-500 mt-4">2</p>
+ <a href="active-vouchers.html" class="bg-purple-600 text-white px-6 py-2 rounded">Active Vouchers</a>
+
+
+        </div>
+
+        <!-- Repayment Deadlines -->
+        <div class="bg-white p-6 rounded shadow-md">
+          <h2 class="text-xl font-semibold text-gray-700">Repayment Deadlines</h2>
+          <p class="text-4xl font-bold text-red-500 mt-4">1 Overdue</p>
+         <a href="repay.html" class="bg-green-600 text-white px-6 py-2 rounded">Repay Now</a>
+
+        </div>
+
+      </div>
+
+      <!-- Recent Vouchers -->
+      <div class="mt-8">
+        <h2 class="text-2xl font-bold text-gray-700">Recent Vouchers</h2>
+        <div class="bg-white mt-4 p-6 rounded shadow-md">
+          <table class="w-full table-auto">
+            <thead>
+              <tr class="bg-gray-200">
+                <th class="px-4 py-2">Voucher ID</th>
+                <th class="px-4 py-2">Amount</th>
+                <th class="px-4 py-2">Issued Date</th>
+                <th class="px-4 py-2">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="border px-4 py-2">#123456</td>
+                <td class="border px-4 py-2">10k Ush</td>
+                <td class="border px-4 py-2">2024-09-30</td>
+                <td class="border px-4 py-2 text-green-500">Paid</td>
+              </tr>
+              <tr>
+                <td class="border px-4 py-2">#123457</td>
+                <td class="border px-4 py-2">5k Ush</td>
+                <td class="border px-4 py-2">2024-09-29</td>
+                <td class="border px-4 py-2 text-red-500">Overdue</td>
+              </tr>
+              <tr>
+                <td class="border px-4 py-2">#123458</td>
+                <td class="border px-4 py-2">20k Ush</td>
+                <td class="border px-4 py-2">2024-09-28</td>
+                <td class="border px-4 py-2 text-yellow-500">Pending</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 p-4 text-white mt-auto">
+      <div class="container mx-auto text-center">
+        <p>&copy; 2024 Fuel Voucher System. All rights reserved.</p>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

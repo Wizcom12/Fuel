@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Voucher Details</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="min-h-screen flex flex-col">
+
+
+
+ 
+  <nav class="bg-blue-600 p-4 text-white">
+    <div class="container mx-auto flex justify-between items-center">
+        <h1 class="text-2xl font-bold">View Voucher  Details </h1>
+        <div class="hidden md:flex space-x-4">
+            <a href="client.html" class="hover:text-blue-200">Client Dashboard</a>
+            <a href="petrol-station.html" class="hover:text-blue-200">Petrol Station Dashboard</a>
+            <a href="admin.html" class="hover:text-blue-200">Admin Dashboard</a>
+        </div>
+        <button class="md:hidden flex items-center" id="menu-button">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
+        <button class="bg-blue-800 px-4 py-2 rounded">Log Out</button>
+    </div>
+    <div class="md:hidden" id="menu" class="hidden">
+        <a href="client.html" class="block px-4 py-2 hover:bg-blue-500">Client Dashboard</a>
+        <a href="petrol-station.html" class="block px-4 py-2 hover:bg-blue-500">Petrol Station Dashboard</a>
+        <a href="admin.html" class="block px-4 py-2 hover:bg-blue-500">Admin Dashboard</a>
+    </div>
+</nav>
+
+<script>
+    const menuButton = document.getElementById('menu-button');
+    const menu = document.getElementById('menu');
+
+    menuButton.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+    });
+</script>
+
+        <div class="container mx-auto mt-8">
+            <h2 class="text-2xl font-bold text-gray-700 mb-6">View Voucher Details</h2>
+            <div class="bg-white p-6 rounded shadow-md">
+                <form>
+                    <label for="voucher-id" class="block text-lg font-semibold text-gray-600">Enter Voucher ID:</label>
+                    <input type="text" id="voucher-id" class="border border-gray-300 p-2 rounded mt-2 w-full" placeholder="Enter Voucher ID" required>
+
+                    <button type="submit" class="bg-blue-600 text-white px-4 py-2 mt-4 rounded">View Details</button>
+                </form>
+                <div class="mt-6" id="voucher-details" style="display: none;">
+                    <h3 class="text-lg font-bold">Voucher Information</h3>
+                    <p class="text-gray-600">Voucher ID: <span id="detail-id">#123456</span></p>
+                    <p class="text-gray-600">Client National ID: <span id="client-id">A123456789</span></p>
+                    <p class="text-gray-600">Amount: <span id="amount">10,000 UGX</span></p>
+                    <p class="text-gray-600">Status: <span id="status" class="text-green-500">Active</span></p>
+                    <p class="text-gray-600">Expiration Date: <span id="expiration-date">2024-10-07</span></p>
+                </div>
+            </div>
+        </div>
+
+        <footer class="bg-gray-800 p-4 text-white mt-auto">
+            <div class="container mx-auto text-center">
+                <p>&copy; 2024 Fuel Voucher System. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Example JavaScript to show voucher details (mock data)
+        document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const voucherId = document.getElementById('voucher-id').value;
+
+            // Simulate fetching voucher details (in a real application, you would fetch from a backend)
+            if (voucherId === '#123456') {
+                document.getElementById('detail-id').innerText = voucherId;
+                document.getElementById('client-id').innerText = 'A123456789';
+                document.getElementById('amount').innerText = '10,000 UGX';
+                document.getElementById('status').innerText = 'Active';
+                document.getElementById('expiration-date').innerText = '2024-10-07';
+                document.getElementById('voucher-details').style.display = 'block';
+            } else {
+                alert('Voucher not found!');
+            }
+        });
+    </script>
+</body>
+</html>
